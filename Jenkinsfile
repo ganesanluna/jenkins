@@ -3,7 +3,7 @@ pipeline {
       stages {
         stage('build') {
       steps {
-        RUN "apt-get update"
+        sh "apt-get update"
         RUN "apt-get upgrade -y"
         RUN "apt-get install -y python3"
         RUN "chmod +x class_add.py"
