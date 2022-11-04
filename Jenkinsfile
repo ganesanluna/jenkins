@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'ubuntu:latest' }
+        docker { image 'busybox:latest' }
     }
     stages {
         stage('Build') {
