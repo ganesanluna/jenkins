@@ -8,7 +8,7 @@ pipeline {
                 cat /etc/os-release
                 pwd
                 apt install python3
-                python3 -c "print('Hello world')"
+                python3 --version
             }
         }
     }
