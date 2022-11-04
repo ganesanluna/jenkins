@@ -1,15 +1,15 @@
 pipeline {
-    agent {
-        docker { image 'busybox:latest' }
+    agent { docker { image 'ubuntu:latest' } }
+      stages {
+        stage('build') {
+        steps {
+            apt-get update
+            # apt-get upgrade -y"
+            # RUN "apt-get install -y python3"
+            sh "chmod +x class_add.py"
+            sh "./class_add.py"
+
+      }
     }
-    stages {
-        stage('Build') {
-            steps {
-                sh 'ls'
-                sh 'apt-get update'
-                sh 'apt-get install python3'
-                sh 'python3 class_add.py'
-            }
-        }
-    }
+  }
 }
