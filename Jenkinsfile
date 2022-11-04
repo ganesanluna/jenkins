@@ -5,9 +5,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'cat /etc/os-release'
-                sh 'pwd'
-                sh 'apt install python3'
+                sh 'ls'
+                sh 'apt update'
+                sh 'apt install python3 -y'
                 sh 'python3 class_add.py'
             }
         }
