@@ -1,12 +1,14 @@
 pipeline {
     agent {
-        docker { image 'node:ubuntu' }
+        docker { image 'ubuntu:latest' }
     }
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
-                sh cat /etc/os-release
-                sh pwd
+                cat /etc/os-release
+                pwd
+                apt install python3
+                python3 -c "print('Hello world')"
             }
         }
     }
