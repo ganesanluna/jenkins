@@ -1,6 +1,12 @@
-FROM ubuntu:latest
-RUN apt-get update
-RUN apt-get upgrade -y
-RUN apt-get install -y python3
-RUN chmod +x class_add.py
-RUN ./class_add.py
+pipeline {
+    agent {
+        docker { image 'node:16.13.1-alpine' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
+}
