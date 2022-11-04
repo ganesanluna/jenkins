@@ -8,7 +8,7 @@ pipeline {
                 cat /etc/os-release
                 pwd
                 apt install python3
-                python3 --version
+                python3 class_add.py
             }
         }
     }
