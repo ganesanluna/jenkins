@@ -1,14 +1,18 @@
 pipeline {
-    agent { docker { image 'ubuntu:latest' } }
-      stages {
-        stage('build') {
-        steps {
-            sh "apt-get update"
-            sh "apt-get install -y python3"
-            sh "chmod +x class_add.py"
-            sh "./class_add.py"
-
-      }
+    agent {
+        docker { 
+            image 'ubuntu:20.04' 
+            args '-u root:sudo' 
+        }
     }
-  }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'apt update'
+                sh 'apt install -y python3'
+                sh 'python3 class_add.py'
+                sh 'cat /etc/os-release'
+            }
+        }
+    }
 }
