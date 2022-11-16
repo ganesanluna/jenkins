@@ -1,15 +1,21 @@
 pipeline {
-    stages {
-        stage('Build') {
-            steps {
-                sh 'docker pull ubuntu:latest'
-                step {
-                   sh 'apt-get update'
-                   sh 'apt-get install python3 -y'
-                   sh 'python3 class_add.py'
-                `}
-              `}
-            }
-        }
-    }
+	agent none
+	stages {
+		stage('Stage 1' ) {
+			agent {
+				docker   { image ''ubuntu:18.04 }
+			}
+			steps {
+				sh ''lsb_release -a"
+			}
+		}
+		stage('Stage 2') {
+			agent {
+				docker   {   image ""ubuntu:20.04" } 
+			}
+			steps {
+				sh "lsb_release -a"
+			}
+		}
+	}
 }
