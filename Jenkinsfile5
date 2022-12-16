@@ -1,0 +1,17 @@
+pipeline {
+    agent {
+        docker { 
+            image 'debian:bullseye-slim' 
+            args '-u root:sudo' 
+        }
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'apt update'
+                sh 'apt install -y cppcheck'
+                sh 'cppcheck --enable=all --suppress=missingIncludeSystem ./testing.c'
+            }
+        }
+    }
+}
