@@ -10,6 +10,7 @@ pipeline {
             steps {
                 sh 'apt update'
                 sh 'apt install -y cppcheck'
+                sh which cppcheck
                 sh 'cppcheck --enable=all --suppress=missingIncludeSystem ./testing.c'
             }
         }
